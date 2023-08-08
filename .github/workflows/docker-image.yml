@@ -33,6 +33,8 @@ jobs:
         ECR_REPOSITORY: test123
         IMAGE_TAG: weather-${{ github.sha }}
       run: |
+        COMMIT_ID=$(echo "${{ github.sha }}" | cut -c1-7)
+        IMAGE_TAG="weather-$COMMIT_ID"
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     - name: Log out of Amazon ECR
