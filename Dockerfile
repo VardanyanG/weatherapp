@@ -1,20 +1,17 @@
-# Use the official Golang image as the base image
-FROM golang:1.17-alpine
+# Use the official Python image as the base image
+FROM python:3.9-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the source code and go.mod/go.sum into the container at /app
-COPY . .
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Initialize Go module (replace "mywebapp" with your preferred module name)
-RUN go mod init mywebapp
+# Install Flask and any other dependencies from requirements.txt
+RUN pip install -r requirements.txt
 
-# Build the Go application inside the container
-RUN go build -o main .
+# Expose the port that the Flask app will run on (must match the app's port)
+EXPOSE 8080
 
-# Expose the port that the web app will run on (must match the app's port)
-EXPOSE 8880
-
-# Command to run the Go application when the container starts
-CMD ["./main"]
+# Command to run the Flask application when the container starts
+CMD ["python", "weather.py"]
