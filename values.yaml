@@ -1,0 +1,8 @@
+controller:
+  replicaCount: 1
+  labels:
+    app: nginx-ingress
+    environment: develop
+  selector:
+    app: nginx-ingress
+
