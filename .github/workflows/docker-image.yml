@@ -41,7 +41,10 @@ jobs:
       if: always()
       run: |
         docker logout ${{ steps.login-ecr.outputs.registry }}
-        ls
+        
+        
+    - name: Update kube config
+      run: aws eks update-kubeconfig --name test    
       
     - name: Deploy nodejs helm chart to EKS
       run: |
