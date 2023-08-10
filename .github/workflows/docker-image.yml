@@ -30,7 +30,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: test123
+        ECR_REPOSITORY: dev-ecr
         IMAGE_TAG: weather-${{ github.sha }}
       run: |
         COMMIT_ID=$(echo "${{ github.sha }}" | cut -c1-7)
@@ -40,3 +40,13 @@ jobs:
     - name: Log out of Amazon ECR
       if: always()
       run: docker logout ${{ steps.login-ecr.outputs.registry }}
+      
+ #   - name: Deploy to EKS using Helm
+##     uses: bitovi/github-actions-deploy-eks-helm@v1.2.4
+#     with:
+#       eks-cluster-name: your-cluster-name
+#       aws-region: us-east-1  # Adjust this to your region
+#       helm-chart-path: ./path/to/helm/chart
+#       helm-values: |
+#         key1: value1
+#         key2: value2
