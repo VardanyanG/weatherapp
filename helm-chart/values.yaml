@@ -3,8 +3,8 @@ ingressClassName: nginx
 ingressClassNameInternal: nginx-internal
 
 container:
-  replicaCount: 3
+  replicaCount: 2
   image:
     repository: 393295849413.dkr.ecr.us-east-1.amazonaws.com/dev-ecr
     tag: weather
-  containerPort: 8000
+  containerPort: 8080
