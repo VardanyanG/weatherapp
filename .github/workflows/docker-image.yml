@@ -46,7 +46,7 @@ jobs:
     - name: Deploy to EKS using Helm
       uses: bitovi/github-actions-deploy-eks-helm@v1.2.4
       with:
-        eks-cluster-name: your-cluster-name
+        eks-cluster-name: dev-eks
         aws-region: us-east-1  # Adjust this to your region
         helm-chart-path: ./helm-chart
         helm-values: |
