@@ -48,7 +48,7 @@ jobs:
       with:
         eks-cluster-name: your-cluster-name
         aws-region: us-east-1  # Adjust this to your region
-        helm-chart-path: ../../helm-chart
+        helm-chart-path: ./helm-chart
         helm-values: |
           key1: value1
           key2: value2
