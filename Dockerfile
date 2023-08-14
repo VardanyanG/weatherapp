@@ -12,6 +12,6 @@ RUN pip install -r requirements.txt
 
 # Expose the port that the Flask app will run on (must match the app's port)
 EXPOSE 8080
-ENV API_KEY=${{ secrets.API_KEY }} 
+
 # Command to run the Flask application when the container starts
 CMD ["python", "weather.py"]
