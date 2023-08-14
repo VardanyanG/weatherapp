@@ -1,7 +1,6 @@
 # Use the official Python image as the base image
 FROM python:3.9-slim
-ARG API_KEY
-ENV API_KEY ${API_KEY}
+
 # Set the working directory inside the container
 WORKDIR /app
 
