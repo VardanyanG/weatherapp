@@ -21,7 +21,12 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-
+    
+    - uses: falnyr/replace-env-vars-action@master
+      env:
+        API_KEY: API_KEY
+      with:
+        filename: .env
     # see: https://github.com/aws-actions/amazon-ecr-login
     - name: Log in to Amazon ECR
       id: login-ecr
