@@ -29,6 +29,7 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       env:
+        API_KEY: ${{ secrets.API_KEY }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: dev-ecr
         IMAGE_TAG: weather-${{ github.sha }}
