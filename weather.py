@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # OpenWeatherMap API Key
-API_KEY = os.environ.get("API_KEY")
+API_KEY = "a6311858fb35df63b55216bae4aa952a"
 
 @app.route('/ping')
 def ping():
