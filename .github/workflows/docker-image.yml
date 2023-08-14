@@ -34,6 +34,7 @@ jobs:
         ECR_REPOSITORY: dev-ecr
         IMAGE_TAG: weather-${{ github.sha }}
       run: |
+        echo  $API_KEY
         COMMIT_ID=$(echo "${{ github.sha }}" | cut -c1-7)
         IMAGE_TAG="weather"
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
